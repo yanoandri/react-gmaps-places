@@ -1,24 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
+import { Wrapper, Status } from "@googlemaps/react-wrapper";
+import { MapComponent } from './component/MapComponent';
+
+const render = (status) => {
+  switch(status) {
+    case Status.FAILURE:
+      return <h1>Error...</h1>
+    default:
+      return <h1>Loading...</h1>
+  }
+};
 
 function App() {
+  const center = { lat: -34.397, lng: 150.644 };
+  const zoom = 12;
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Wrapper apiKey={`AIzaSyAefrEsM-4G0Pwiio6J97i9dEqP6DOCQ0E`} render={render} libraries={[`places`]}>
+        <MapComponent center={center} zoom={zoom} />
+    </Wrapper>
   );
 }
 
