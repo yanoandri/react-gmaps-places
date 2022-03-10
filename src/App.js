@@ -16,7 +16,7 @@ function App() {
   const zoom = 12;
 
   return (
-    <Wrapper apiKey={`AIzaSyAefrEsM-4G0Pwiio6J97i9dEqP6DOCQ0E`} render={render} libraries={[`places`]}>
+    <Wrapper apiKey={`key`} render={render} libraries={[`places`]}>
         <MapComponent center={center} zoom={zoom} />
     </Wrapper>
   );
